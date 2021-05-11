@@ -12,6 +12,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
 import { HomeComponent } from './components/core/home/home.component';
 import { AboutComponent } from './components/core/about/about.component';
 import { AuthorComponent } from './components/core/author/author.component';
@@ -19,6 +22,7 @@ import { ArtiklComponent } from './components/artikl/artikl.component';
 import { DobavljacComponent } from './components/dobavljac/dobavljac.component';
 import { PorudzbinaComponent } from './components/porudzbina/porudzbina.component';
 import { StavkaPorudzbineComponent } from './components/stavka-porudzbine/stavka-porudzbine.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -42,7 +46,10 @@ import { StavkaPorudzbineComponent } from './components/stavka-porudzbine/stavka
     MatSidenavModule,
     MatListModule,
     MatGridListModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatTableModule,
+    MatToolbarModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
