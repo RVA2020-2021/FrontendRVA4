@@ -36,6 +36,8 @@ import { PorudzbinaDialogComponent } from './components/dialogs/porudzbina-dialo
 import { MatSelectModule } from '@angular/material/select';
 import { MatNativeDateModule } from '@angular/material/core';
 import { StavkaPorudzbineDialogComponent } from './components/dialogs/stavka-porudzbine-dialog/stavka-porudzbine-dialog.component';
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -75,7 +77,9 @@ import { StavkaPorudzbineDialogComponent } from './components/dialogs/stavka-por
     MatDatepickerModule,
     MatCheckboxModule,
     MatSelectModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatSortModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

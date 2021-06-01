@@ -3,7 +3,10 @@
 </mat-toolbar>
 
 <div class="container mat-elevation-z8">
-    <mat-table #table [dataSource]="dataSource" class="mat-cell" matSort>
+    <mat-form-field>
+        <input matInput placeholder="Pretraga artikala" (keyup)="applyFilter($event.target.value)">
+    </mat-form-field>
+    <mat-table #table matSort [dataSource]="dataSource" class="mat-cell" matSort>
         <ng-container matColumnDef="id">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
             <mat-cell *matCellDef="let row">{{ row.id }}</mat-cell>
@@ -59,6 +62,9 @@
         <mat-row style="cursor: pointer" *matRowDef="let row; columns: displayedColumns;" (click)="selectRow(row)">
         </mat-row>
     </mat-table>
+
+    <mat-paginator [length] = "100" [pageSize]="5" [pageSizeOptions]="[5,10,25,100]"> 
+    </mat-paginator>
 </div>
 
 <div class="container mat-elevation-z8">

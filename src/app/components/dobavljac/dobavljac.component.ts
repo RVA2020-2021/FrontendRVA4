@@ -1,10 +1,12 @@
 import { DobavljacService } from './../../services/dobavljac.service';
 import { Dobavljac } from './../../models/dobavljac';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { DobavljacDialogComponent } from '../dialogs/dobavljac-dialog/dobavljac-dialog.component';
+import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-dobavljac',
@@ -15,6 +17,9 @@ export class DobavljacComponent implements OnInit {
 
   constructor(private dobavljacService: DobavljacService,
     private dialog: MatDialog) { }
+
+    @ViewChild(MatSort, {static: false}) sort: MatSort;
+    @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
 
 ngOnDestroy(): void {
   this.subscription.unsubscribe;
@@ -33,6 +38,8 @@ public loadData(){
       .subscribe(dataDobavljac => {
           //console.log(dataDobavljac);
           this.dataSource=new MatTableDataSource(dataDobavljac);
+          this.dataSource.sort = this.sort;
+          this.dataSource.paginator = this.paginator;
       }),
       (error:Error) => {console.log(error.name+' '+error.message)}
 }
@@ -47,6 +54,14 @@ public openDialog(flag:number,id?:number, naziv?:string, adresa?:string, kontakt
         this.loadData();
       }
     })
+}
+
+applyFilter(filterValue: string) {
+  
+  filterValue = filterValue.trim();
+  filterValue = filterValue.toLowerCase();
+  this.dataSource.filter = filterValue;
+
 }
 
 }
