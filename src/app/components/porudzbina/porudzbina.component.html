@@ -56,7 +56,11 @@
         </ng-container>
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row style="cursor: pointer" *matRowDef="let row; columns: displayedColumns;">
+        <mat-row style="cursor: pointer" *matRowDef="let row; columns: displayedColumns;" (click)="selectRow(row)">
         </mat-row>
     </mat-table>
+</div>
+
+<div class="container mat-elevation-z8">
+    <app-stavka-porudzbine *ngIf="selektovanaPorudzbina" [selektovanaPorudzbina]="selektovanaPorudzbina"></app-stavka-porudzbine>
 </div>

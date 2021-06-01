@@ -1,9 +1,9 @@
+import { Porudzbina } from './../../models/porudzbina';
 import { MatDialog } from '@angular/material/dialog';
 import { Dobavljac } from './../../models/dobavljac';
 import { PorudzbinaService } from './../../services/porudzbina.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { Porudzbina } from 'src/app/models/porudzbina';
 import { Subscription } from 'rxjs';
 import { PorudzbinaDialogComponent } from '../dialogs/porudzbina-dialog/porudzbina-dialog.component';
 
@@ -17,6 +17,7 @@ export class PorudzbinaComponent implements OnInit, OnDestroy {
   displayedColumns = ['id', 'datumPorucivanja', 'isporuceno','iznos', 'placeno', 'actions'];
   dataSource: MatTableDataSource<Porudzbina>;
   subscription: Subscription;
+  selektovanaPorudzbina: Porudzbina;
 
   constructor(private porudzbinaService: PorudzbinaService, private dialog: MatDialog) { }
 
@@ -47,5 +48,10 @@ export class PorudzbinaComponent implements OnInit, OnDestroy {
     }
   })
 }
+
+  public selectRow(row: any){
+    this.selektovanaPorudzbina=row;
+    console.log(this.selektovanaPorudzbina);
+  }
 
 }

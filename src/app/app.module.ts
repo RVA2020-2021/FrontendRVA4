@@ -35,6 +35,7 @@ import { FormsModule } from '@angular/forms';
 import { PorudzbinaDialogComponent } from './components/dialogs/porudzbina-dialog/porudzbina-dialog.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatNativeDateModule } from '@angular/material/core';
+import { StavkaPorudzbineDialogComponent } from './components/dialogs/stavka-porudzbine-dialog/stavka-porudzbine-dialog.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     StavkaPorudzbineComponent,
     ArtiklDialogComponent,
     DobavljacDialogComponent,
-    PorudzbinaDialogComponent
+    PorudzbinaDialogComponent,
+    StavkaPorudzbineDialogComponent
   ],
   imports: [
     BrowserModule,
